@@ -1,0 +1,10 @@
+Chellcargate|Hamuelland|23
+Chellcargate|Dalrayss|85
+Dalrayss|Hamuelland|100
+Dalrayss|Kalvinville|92
+Syccvarka|Kalvinville|47
+Ikmam|Kalvinville|35
+Ikmam|Lyhalson|70
+Kalvinville|Lyhalson|5
+Nevaehgate|Ranaskeep|45
+Nevaehgate|Syccvarka|85
