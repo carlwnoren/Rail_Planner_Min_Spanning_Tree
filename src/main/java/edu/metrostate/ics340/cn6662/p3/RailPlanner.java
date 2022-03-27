@@ -26,12 +26,10 @@ public class RailPlanner {
 	 */
 	public static ValueGraph<String, Integer> createPlan(String estimateFilePath) {
 		MutableValueGraph<String, Integer> railLine = ValueGraphBuilder.undirected().build();
-		
 		var estimateLine = buildEstimate(estimateFilePath);
 		var pathQueue = buildPathQueue(estimateLine);
 		var stationList = buildStationSets(estimateLine);
 		buildRailLine(estimateLine, pathQueue, stationList, railLine);
-		
 		return railLine;
 	}
 	
