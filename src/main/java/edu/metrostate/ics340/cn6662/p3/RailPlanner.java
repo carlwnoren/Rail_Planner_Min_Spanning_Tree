@@ -50,7 +50,6 @@ public class RailPlanner {
 				stationSets.remove(stationSetV);
 			}
 		}
-		
 	}
 
 	/*
@@ -67,6 +66,7 @@ public class RailPlanner {
 
 	/*
 	 * This helper method builds a graph based on the edges in the file provided by the user.
+	 * The edges and nodes of this graph will be used by other helper methods to build the final rail line.
 	 */
 	private static MutableValueGraph<String, Integer> buildEstimate(String filePath) {
 		MutableValueGraph<String, Integer> estimates = ValueGraphBuilder.undirected().build();
