@@ -39,9 +39,15 @@ public class RailPlanner {
 	private static void buildRailLine(MutableValueGraph<String, Integer> estimateLine, PriorityQueue<RailPath> pathQueue, 
 			LinkedList<TreeSet<String>> stationSets, MutableValueGraph<String, Integer> railLine) {
 		while (!pathQueue.isEmpty() ) {
+			//Pull the lowest cost path from the queue
 			var currentPath = pathQueue.poll();
+			//Check if the station stations in the path are in the same linked set of stations
 			var stationSetU = findStationSet(currentPath.getStationU(), stationSets);
 			if (!stationSetU.contains(currentPath.getStationV())) {
+				/*
+				 * If the stations are not in the same set, find the set for the second station,
+				 * and then merge the two sets.
+				 */
 				var stationSetV = findStationSet(currentPath.getStationV(), stationSets);
 				railLine.putEdgeValue(currentPath.getStationU(), currentPath.getStationV(), currentPath.getCost());
 				stationSetU.addAll(stationSetV);
@@ -75,6 +81,7 @@ public class RailPlanner {
 			while (scnr.hasNext()) {
 				edge = scnr.nextLine().split("\\|");
 				estimates.putEdgeValue(edge[0], edge[1], Integer.parseInt(edge[2]));
+				System.out.println(edge[0]);
 			}
 			scnr.close();
 		} catch (IOException ioe) {

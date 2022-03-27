@@ -10,6 +10,11 @@ public class RailPath implements Comparable<RailPath>{
 	EndpointPair<String> stations;
 	int cost;
 	
+	/**
+	 * Constructs a RailPath object with an endpoint pair and cost given by the user.
+	 * @param stations
+	 * @param cost
+	 */
 	public RailPath(EndpointPair<String> stations, int cost) {
 		this.stations = stations;
 		this.cost = cost;
@@ -23,14 +28,27 @@ public class RailPath implements Comparable<RailPath>{
 		return stations;
 	}
 	
+	/**
+	 * Returns one of the stations along this rail set. The station returned as U is
+	 * arbitrary but consistent.
+	 * @return
+	 */
 	public String getStationU() {
 		return stations.nodeU();
 	}
 	
+	/**
+	 * Returns one of the stations along this rail set. The station returned as V is
+	 * arbitrary but consistent.
+	 * @return
+	 */
 	public String getStationV() {
 		return stations.nodeV();
 	}
 
+	/**
+	 * compareTo set to compare RailPath objects by their costs.
+	 */
 	@Override
 	public int compareTo(RailPath path) {
 		return Integer.compare(cost, path.getCost());
