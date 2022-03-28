@@ -81,7 +81,6 @@ public class RailPlanner {
 			while (scnr.hasNext()) {
 				edge = scnr.nextLine().split("\\|");
 				estimates.putEdgeValue(edge[0], edge[1], Integer.parseInt(edge[2]));
-				System.out.println(edge[0]);
 			}
 			scnr.close();
 		} catch (IOException ioe) {
