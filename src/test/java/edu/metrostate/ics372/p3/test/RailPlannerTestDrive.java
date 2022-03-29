@@ -34,6 +34,19 @@ public class RailPlannerTestDrive {
 	}
 	
 	@Test
+	public void test2() {
+		ValueGraph<String, Integer> testGraph = RailPlanner.createPlan(
+				"C:\\Users\\carlw\\ICS 340\\Workspace\\P3_CN6662_RailPlanner\\src\\test\\resources\\Test2.txt");
+		assertEquals(testGraph.edges().size(), 1);
+		assertEquals(testGraph.nodes().size(), 2);
+		int pathSum = 0;
+		for (EndpointPair<String> edge : testGraph.edges()) {
+			pathSum += testGraph.edgeValue(edge.nodeU(), edge.nodeV()).get();
+		}
+		assertEquals(pathSum, 5);
+	}
+	
+	@Test
 	public void testABCDEF() {
 		ValueGraph<String, Integer> testGraph = RailPlanner.createPlan(
 				"C:\\Users\\carlw\\ICS 340\\Workspace\\P3_CN6662_RailPlanner\\src\\test\\resources\\TestABCDEF.txt");
